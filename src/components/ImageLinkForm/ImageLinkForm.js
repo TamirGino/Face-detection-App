@@ -28,12 +28,10 @@ const ImageLinkForm = (props) => {
   };
 
   const onInputChange = (event) => {
-    //console.log(event.target.value);
     setInputUrl(event.target.value)
   }
 
   const copyLink = (url) => {
-    //console.log(event.target.value);
     setInputUrl(url)
   }
 
@@ -53,10 +51,6 @@ const ImageLinkForm = (props) => {
       <Typography sx={{fontFamily:"Courier New"}} variant="h5" >
         This Magic Brain will detect faces in your pictures. Git it a try ! 
       </Typography>
-      {/* <Box
-      sx={{
-        ...boxStyle,
-      }} > */}
         <Card additionalStyle={additionalBoxStyle}>
         <div className={styles.input_btn} >
         <TextField id="outlined-basic" value={inputUrl} label="Enter your Url here" variant="filled" type={"url"} sx={{
@@ -68,11 +62,7 @@ const ImageLinkForm = (props) => {
         <div>
           <SelectLabels copyLink={copyLink} />
         </div>
-
         </Card>
-      {/* </Box> */}
-
-      
       <Snackbar open={openAlert} autoHideDuration={6000} on onClose={handleClose} 
         anchorOrigin={{
         vertical: 'top', 
@@ -83,7 +73,6 @@ const ImageLinkForm = (props) => {
         </Alert>
       </Snackbar>
     </div>
-    
     
     )
 

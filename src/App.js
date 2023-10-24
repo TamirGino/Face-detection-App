@@ -22,7 +22,6 @@ function App() {
   const updateEntries = async () => {
     
     try {
-      console.log("image!!!")
         const resp = await fetch('https://face-detection-wn85.onrender.com/update_entries', {
           method: 'put',
           headers: {'Content-Type': 'application/json'},
@@ -34,19 +33,11 @@ function App() {
         });
         // const count = await resp.json();
         if (resp.status === 200){
-          console.log("Entry updated !!!!!!!!");
           SetUser(prevUser => ({
             ...prevUser,
             entries: prevUser.entries + 1
           }));
         }
-       
-        // if (count){
-        //   console.log(count);
-        //   SetUser({
-        //     entries: count
-        //   })
-        // }
         
     } catch (error) {
         console.error('Error:', error);
@@ -54,7 +45,6 @@ function App() {
 };
 
   const loadUser = (user_data) => {
-    console.log(user_data)
     SetUser({
       id: user_data._id ,
       name: user_data.name,
@@ -94,7 +84,6 @@ function App() {
     };
 
   const handleApi = (url) =>{
-    //console.log(url);
     setImageUrl(url);
     updateEntries();
   }
@@ -103,19 +92,11 @@ function App() {
     setRoute(route);
   }
 
-
   return (
     <div className="app">
         <ParticlesBg color="#ffebcd" type="cobweb" bg={true} />
         <Navigation handleRoutes={handleRoutes}/>
-        {getRoute(route)}
-           {/* <SignIn />
-          <div className='container'>
-            <Rank />
-            <ImageLinkForm sendImageUrl={handleApi} />
-            <ClarifaiFaceDetection imgUrl={imageUrl} />
-          </div>  */}
-          
+        {getRoute(route)}  
     </div>
   );
 }

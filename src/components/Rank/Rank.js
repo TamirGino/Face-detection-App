@@ -1,4 +1,4 @@
-import { Button, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import React from 'react';
 
 const Rank = (props) => {
@@ -9,7 +9,6 @@ const Rank = (props) => {
         } else {
             return "Guest"
         }
-        
       };
 
     return(      

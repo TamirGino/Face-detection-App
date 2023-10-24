@@ -4,28 +4,11 @@ import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import MuiAlert from '../Alert/Alert';
 import { Alert, Snackbar } from '@mui/material';
-
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 
 export default function Register(props) {
 
@@ -45,7 +28,6 @@ export default function Register(props) {
 
   const isValidForm = () => {
     if (email === "" ||  name === "" || password === "") {
-        console.log("Please fill in the all form");
         setAlertMsg("All fields are required !");
         setOpenAlert(true);
         return true;
@@ -66,7 +48,6 @@ export default function Register(props) {
 
   const fetchNewUser = async () => {
     try {
-      console.log(email);
         const resp = await fetch('https://face-detection-wn85.onrender.com/register', {
           method: 'post',
           headers: {'Content-Type': 'application/json'},
@@ -78,13 +59,10 @@ export default function Register(props) {
         });
         if (resp.status === 200) {
         const user = await resp.json();
-        // if (user){
-          console.log(user);
           props.loadUser(user);
           props.handleRoutes("home");
         } else if (resp.status === 400) { 
           const errorResponse = await resp.json();
-          console.log(errorResponse.error);
           setAlertMsg("User already exist! Please sign in.")
           setOpenAlert(true);
         } else {
@@ -96,22 +74,11 @@ export default function Register(props) {
     }
 };
 
-  
-  // const [openAlert, setOpenAlert] = useState(false);
-
-  // const handleClose = (event, reason) => {
-  //   if (reason === 'clickaway') {
-  //     return;
-  //   }
-  //   setOpenAlert(false);
-  // };
-
   const handleSubmit = (event) => {
     if(isValidForm()){
       console.log("NOT FETCHING")
     } else {
       fetchNewUser();
-      // console.log(email, password)
     }
   };
 
@@ -129,8 +96,6 @@ export default function Register(props) {
 
   return (
 
-    // <ThemeProvider theme={defaultTheme}>
-    // <Card additionalStyle={additionalBoxStyle}>
       <Container sx={{
         border:"1px solid black",
         backgroundColor: 'black',
@@ -229,7 +194,7 @@ export default function Register(props) {
         </Alert>
       </Snackbar>
         
-        <Copyright sx={{ mt: 8, mb: 4 }} />
+        
       </Container>
   );
 }

@@ -4,28 +4,11 @@ import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import MuiAlert from '../Alert/Alert';
 import { Alert, Snackbar } from '@mui/material';
-
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 
 export default function SignIn(props) {
 
@@ -46,15 +29,11 @@ export default function SignIn(props) {
         });
         const data = await resp.json();
         if (resp.status === 200){
-           //props.loadUser(data);
           props.handleRoutes("home");
           props.loadUser(data.user);
-          console.log("LOGGED IN SUUCSEED !")
-          console.log(data.user);
         } else {
           setAlertMsg("All fields are required !");
           setOpenAlert(true);
-          console.log(data);
         }
         
     } catch (error) {
@@ -73,12 +52,10 @@ export default function SignIn(props) {
 
   const handleSubmit = (event) => {
     if (email === "" || password === "") {
-      // console.log("Please fill in the all form");
       setAlertMsg("All fields are required !");
       setOpenAlert(true);
     } else{
       fetchData();
-      console.log(email, password)
     }
   };
 
@@ -91,9 +68,6 @@ export default function SignIn(props) {
   }
 
   return (
-
-    // <ThemeProvider theme={defaultTheme}>
-    // <Card additionalStyle={additionalBoxStyle}>
       <Container sx={{
         border:"1px solid black",
         backgroundColor: 'black',
@@ -168,7 +142,6 @@ export default function SignIn(props) {
           </Box>
           
         </Box>
-         {/* {openAlert && <MuiAlert message={"Email or Password does'nt exist. Please try again."}/>}      */}
         <Snackbar open={openAlert} autoHideDuration={6000} onClose={handleClose} 
         anchorOrigin={{
         vertical: 'top', 
@@ -179,7 +152,6 @@ export default function SignIn(props) {
         </Alert>
       </Snackbar>
         
-        <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
   );
 }

@@ -43,18 +43,6 @@ const Navigation = (props) => {
         <div 
         style={{ padding:'0px' }}
         >
-            {/* <div style={{display:'flex',justifyContent:'flex-end',gap: '12px'}}>
-              <Fab variant="extended" sx={{backgroundColor: "transparent",}}>     
-                <LoginIcon/>
-                <Typography>Sign In</Typography>
-              </Fab>
-            </div>
-            <div style={{display:'flex',justifyContent:'flex-end',gap: '12px'}}>
-              <Fab variant="extended" sx={{backgroundColor: "transparent",}}>     
-                <LoginIcon/>
-                <Typography>Register</Typography>
-              </Fab>
-            </div> */}
             <div style={{}}>
             <StyledSpeedDial
           ariaLabel="SpeedDial playground example"
