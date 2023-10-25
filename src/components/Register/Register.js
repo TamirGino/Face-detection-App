@@ -3,12 +3,11 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { Alert, Snackbar } from '@mui/material';
+import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
 
 export default function Register(props) {
 
@@ -75,10 +74,8 @@ export default function Register(props) {
 };
 
   const handleSubmit = (event) => {
-    if(isValidForm()){
-      console.log("NOT FETCHING")
-    } else {
-      fetchNewUser();
+    if(!isValidForm()){
+      fetchNewUser();  
     }
   };
 
@@ -112,7 +109,7 @@ export default function Register(props) {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 2,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -120,7 +117,7 @@ export default function Register(props) {
         >
         
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
+            <FeedOutlinedIcon />
           </Avatar>
           <Typography sx={{color:"white"}} component="h1" variant="h5">
             Register

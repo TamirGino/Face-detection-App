@@ -69,7 +69,7 @@ function ClarifaiFaceDetection(props) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const resp = await fetch("https://api.clarifai.com/v2/models/" + 'face-detection' + "/outputs", returnClarifaiRequestOptions(props.imgUrl))
+                const resp = await fetch("https://api.clarifai.com/v2/models/face-detection/outputs", returnClarifaiRequestOptions(props.imgUrl))
                 const data = await  resp.json();
                 calculateFaceLocation(data);
                 //.catch(error => console.log('error', error));

@@ -3,12 +3,11 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { Alert, Snackbar } from '@mui/material';
+import LockOpenIcon from '@mui/icons-material/LockOpen';
 
 export default function SignIn(props) {
 
@@ -40,8 +39,6 @@ export default function SignIn(props) {
         console.error('Error:', error);
     }
 };
-
-  
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
@@ -80,28 +77,29 @@ export default function SignIn(props) {
         backgroundSize: '550px 550px, 350px 350px, 250px 250px, 150px 150px',
         backgroundPosition: '0 0, 40px 60px, 130px 270px, 70px 100px',
         borderRadius:'10px',
+        height:'100%',
       }} component="main" maxWidth="xs">
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 2,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            
           }}
         >
         
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
+            <LockOpenIcon />
           </Avatar>
           <Typography sx={{color:"white"}} component="h1" variant="h5">
-            Sign in
+            Login
           </Typography>
-          <Box sx={{ mt: 1 }}>
+          <Box sx={{ mt: 5, display:'flex', flexFlow:'column wrap', gap:'20px', width:'100%', justifyContent:'center' }}>
             <TextField
               onChange={onEmailChange}
               variant="filled"
-              margin="normal"
               required
               fullWidth
               id="email"
@@ -116,7 +114,6 @@ export default function SignIn(props) {
             <TextField
               onChange={onPassChange}
               variant="filled"
-              margin="normal"
               required
               fullWidth
               name="password"
@@ -133,7 +130,7 @@ export default function SignIn(props) {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 5, mb: 2 }}
               onClick={handleSubmit}
             >
               Sign In
