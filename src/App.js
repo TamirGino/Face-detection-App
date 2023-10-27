@@ -94,7 +94,7 @@ function App() {
 
   return (
     <div className="app">
-        <ParticlesBg color="#ffebcd" type="cobweb" bg={true} />
+        {/* <ParticlesBg color="#ffebcd" type="cobweb" bg={true} /> */}
         <Navigation handleRoutes={handleRoutes}/>
         {getRoute(route)}  
     </div>
