@@ -6,7 +6,6 @@ import SelectLabels from '../Select/SelectUrl';
 
 const ImageLinkForm = (props) => {
   const additionalBoxStyle = {
-    height:'100px',
     borderRadius:'10px',
     display: 'flex',  
     flexDirection: 'column',

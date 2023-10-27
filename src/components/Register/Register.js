@@ -61,7 +61,7 @@ export default function Register(props) {
           props.loadUser(user);
           props.handleRoutes("home");
         } else if (resp.status === 400) { 
-          const errorResponse = await resp.json();
+          // const errorResponse = await resp.json();
           setAlertMsg("User already exist! Please sign in.")
           setOpenAlert(true);
         } else {
